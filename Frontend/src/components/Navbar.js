@@ -41,7 +41,7 @@ const Navbar = () => {
   useEffect(() => {
     getUser();
     // eslint-disable-next-line
-  },[]);
+  },[localStorage.getItem('token')]);
 
   return (
     <div>

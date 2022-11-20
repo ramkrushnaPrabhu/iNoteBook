@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.55d861bb.css",
-    "main.js": "/static/js/main.a398da37.js",
+    "main.js": "/static/js/main.e1b5e7ba.js",
     "static/js/787.e1e25ce8.chunk.js": "/static/js/787.e1e25ce8.chunk.js",
     "static/media/back-school-background-with-school-supplies-copy-space_23-2148959021.webp": "/static/media/back-school-background-with-school-supplies-copy-space_23-2148959021.05ba8162bb003e05c64f.webp",
     "index.html": "/index.html",
     "main.55d861bb.css.map": "/static/css/main.55d861bb.css.map",
-    "main.a398da37.js.map": "/static/js/main.a398da37.js.map",
+    "main.e1b5e7ba.js.map": "/static/js/main.e1b5e7ba.js.map",
     "787.e1e25ce8.chunk.js.map": "/static/js/787.e1e25ce8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.55d861bb.css",
-    "static/js/main.a398da37.js"
+    "static/js/main.e1b5e7ba.js"
   ]
 }
