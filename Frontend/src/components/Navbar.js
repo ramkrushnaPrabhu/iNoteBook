@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useContext } from "react";
@@ -10,7 +10,6 @@ const Navbar = () => {
   const context = useContext(noteContext);
   const { showAlert} = context;
   const [User, setUser] = useState('');
-
 
 
   const handleLogout = () => {

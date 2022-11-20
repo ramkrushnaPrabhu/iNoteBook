@@ -111,9 +111,7 @@ const NoteState = (props) => {
         alert,
         setAlert,
         showAlert,
-        User,
-        setUser,
-        getUser,
+
       }}
     >
       {props.children}
