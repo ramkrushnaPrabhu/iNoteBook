@@ -9,7 +9,7 @@ const NoteState = (props) => {
 
   const [notes, setNotes] = useState(notesInitial);
 
-  const [User, setUser] = useState();
+  const [User, setUser] = useState('');
 
   const [alert, setAlert] = useState(null);
 
