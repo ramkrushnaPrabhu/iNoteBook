@@ -9,8 +9,6 @@ const NoteState = (props) => {
 
   const [notes, setNotes] = useState(notesInitial);
 
-  const [User, setUser] = useState('');
-
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
@@ -23,21 +21,7 @@ const NoteState = (props) => {
     }, 1500);
   };
 
-  const getUser = async () => {
-    const response = await fetch(
-      `https://storenoteson.herokuapp.com/api/auth/getuser`,
-      {
-        method: "POST",
 
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.getItem("token"),
-        },
-      }
-    );
-    const userInfo = await response.json();
-    setUser(userInfo);
-  };
 
   const getAllNotes = async () => {
     const response = await fetch(`${host}/api/notes/fetchallnotes/`, {

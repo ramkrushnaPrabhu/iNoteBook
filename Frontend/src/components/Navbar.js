@@ -8,7 +8,11 @@ const Navbar = () => {
   let history = useNavigate();
 
   const context = useContext(noteContext);
-  const { showAlert,User} = context;
+  const { showAlert} = context;
+  const [User, setUser] = useState('');
+
+
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     history("/login");
@@ -19,6 +23,28 @@ const Navbar = () => {
   useEffect(() => {
     console.log(location.pathname);
   }, [location]);
+
+  
+  const getUser = async () => {
+    const response = await fetch(
+      `https://storenoteson.herokuapp.com/api/auth/getuser`,
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+      }
+    );
+    const userInfo = await response.json();
+    setUser(userInfo);
+  };
+
+  useEffect(() => {
+    getUser();
+    // eslint-disable-next-line
+  },[]);
 
   return (
     <div>
