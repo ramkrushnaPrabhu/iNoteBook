@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useContext } from "react";
@@ -6,9 +6,9 @@ import noteContext from "../context/notes/notesContext";
 
 const Navbar = () => {
   let history = useNavigate();
-  const [User, setUser] = useState();
+
   const context = useContext(noteContext);
-  const { showAlert } = context;
+  const { showAlert,User} = context;
   const handleLogout = () => {
     localStorage.removeItem("token");
     history("/login");
@@ -19,22 +19,6 @@ const Navbar = () => {
   useEffect(() => {
     console.log(location.pathname);
   }, [location]);
-
-  const getUser = async () => {
-    const response = await fetch(`https://storenoteson.herokuapp.com/api/auth/getuser`, {
-      method: "POST",
-
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-    });
-    const userInfo = await response.json();
-    setUser(userInfo);
-  };
-  useEffect(() => {
-    getUser();
-  });
 
   return (
     <div>

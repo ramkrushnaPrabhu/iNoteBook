@@ -3,8 +3,8 @@ import noteContext from '../context/notes/notesContext';
 
 const AddNote = () => {
     const context = useContext(noteContext);
-    const { addNote,showAlert } = context;
-    const [User, setUser] = useState('');
+    const { addNote,showAlert,User,getUser } = context;
+
 
     const [note,setNote] = useState({title:"",description:"",tag:""})
 
@@ -20,20 +20,9 @@ const AddNote = () => {
 
     }
 
-    const getUser = async () => {
-        const response = await fetch(`https://storenoteson.herokuapp.com/api/auth/getuser`, {
-          method: "POST",
-    
-          headers: {
-            "Content-Type": "application/json",
-            "auth-token": localStorage.getItem("token"),
-          },
-        });
-        const userInfo = await response.json();
-        setUser(userInfo);
-      };
       useEffect(() => {
         getUser();
+        // eslint-disable-next-line
       },[]);
 
     return (
