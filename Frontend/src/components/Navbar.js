@@ -63,7 +63,7 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-
+            {localStorage.getItem("token") && (
                 <li className="nav-item">
                   <Link
                     className={`nav-link ${
@@ -75,7 +75,7 @@ const Navbar = () => {
                     Create Notes
                   </Link>
                 </li>
-              
+            )}
               {localStorage.getItem("token") && (
                 <li className="nav-item">
                   <Link
