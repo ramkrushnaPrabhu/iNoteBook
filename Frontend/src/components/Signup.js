@@ -28,13 +28,11 @@ const Signup = () => {
     console.log(json)
     if(json.success){
       localStorage.setItem('token', json.Autotoken);
-      history("/");
+      history("/createNotes");
     }
     else{
       alert("invalid credentials");
     }
-
-    
   }
 
   const onChange = (event) => {

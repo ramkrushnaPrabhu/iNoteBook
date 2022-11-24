@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    history("/login");
+    history("/");
     showAlert("LogOut Successful", "success");
   };
 
@@ -67,10 +67,10 @@ const Navbar = () => {
                 <li className="nav-item">
                   <Link
                     className={`nav-link ${
-                      location.pathname === "/" ? "active" : ""
+                      location.pathname === "/createNotes" ? "active" : ""
                     }`}
                     aria-current="page"
-                    to="/"
+                    to="/createNotes"
                   >
                     Create Notes
                   </Link>
@@ -80,10 +80,10 @@ const Navbar = () => {
                 <li className="nav-item">
                   <Link
                     className={`nav-link text-primary ${
-                      location.pathname === "/" ? "active" : ""
+                      location.pathname === "/createNotes" ? "active" : ""
                     }`}
                     aria-current="page"
-                    to="/"
+                    to="/createNotes"
                   >
                     Welcome :-{User.name}
                   </Link>
@@ -94,7 +94,7 @@ const Navbar = () => {
               <form className="d-flex ">
                 <Link
                   className="btn btn-outline-danger mx-1 "
-                  to="/login"
+                  to="/"
                   role="button"
                 >
                   Login

@@ -13,7 +13,7 @@ const Notes = () => {
     if (localStorage.getItem("token")) {
       getAllNotes();
     } else {
-      history("/login");
+      history("/");
     }
     // eslint-disable-next-line
   }, []);

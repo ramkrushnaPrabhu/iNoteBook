@@ -31,7 +31,7 @@ const Login = () => {
 
     if (json.success) {
       localStorage.setItem("token", json.Autotoken);
-      history("/");
+      history("/createNotes");
       showAlert("Login sucessful", "success");
     } else {
       alert("Invalid Credentials");
