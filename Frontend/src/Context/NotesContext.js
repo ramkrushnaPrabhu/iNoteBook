@@ -1,15 +1,12 @@
-import React from "react";
-import noteContext from "./notesContext";
-import { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-const NoteState = (props) => {
+const NotesData = createContext();
+
+const NotesContext = ({ children }) => {
+  const [alert, setAlert] = useState(null);
   const host = "https://storenoteson.herokuapp.com";
 
-  const notesInitial = [];
-
-  const [notes, setNotes] = useState(notesInitial);
-
-  const [alert, setAlert] = useState(null);
+  const [notes, setNotes] = useState([]);
 
   const showAlert = (message, type) => {
     setAlert({
@@ -21,8 +18,6 @@ const NoteState = (props) => {
     }, 1500);
   };
 
-
-
   const getAllNotes = async () => {
     const response = await fetch(`${host}/api/notes/fetchallnotes/`, {
       method: "GET",
@@ -33,6 +28,7 @@ const NoteState = (props) => {
       },
     });
     const json = await response.json();
+    
     setNotes(json);
   };
 
@@ -48,7 +44,7 @@ const NoteState = (props) => {
       body: JSON.stringify({ title, description, tag }),
     });
     const note = await response.json();
-
+    showAlert("Note is Added Successfully","success")
     setNotes(notes.concat(note));
   };
 
@@ -63,11 +59,13 @@ const NoteState = (props) => {
       },
     });
     const json = response.json();
+    console.log(json);
+
     const newNotes = notes.filter((note) => {
       return note._id !== id;
     });
     setNotes(newNotes);
-    showAlert("Note is deleted", "success");
+    showAlert("Note is Deleted Successfully","success")
   };
 
   //Edit a Note
@@ -82,7 +80,7 @@ const NoteState = (props) => {
       body: JSON.stringify({ title, description, tag }),
     });
     const json = response.json();
-
+    console.log(json);
 
     let newNotes = JSON.parse(JSON.stringify(notes));
     for (let index = 0; index < newNotes.length; index++) {
@@ -95,25 +93,21 @@ const NoteState = (props) => {
       }
     }
     setNotes(newNotes);
+    showAlert("Note is Edited Successfully","success")
   };
 
   return (
-    <noteContext.Provider
-      value={{
-        notes,
-        addNote,
-        deleteNote,
-        editNote,
-        getAllNotes,
-        alert,
-        setAlert,
-        showAlert,
-
-      }}
+    <NotesData.Provider
+      value={{ notes, addNote, deleteNote, editNote, getAllNotes,alert, setAlert,showAlert }}
     >
-      {props.children}
-    </noteContext.Provider>
+      {children}
+    </NotesData.Provider>
   );
 };
 
-export default NoteState;
+export default NotesContext;
+
+
+export const NotesState = () => {
+    return useContext(NotesData);
+  };
