@@ -1,21 +1,344 @@
-
- body{
-  background-image: url('../back-school-background-with-school-supplies-copy-space_23-2148959021.webp');
-  background-size: cover;
-  background-position: center;
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* @media screen and (max-width:480px) {
-  body{
-    background-image: url('../back-school-realistic-background-with-colorful-stationary-wooden-surface_1284-55358.webp');
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-  }
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  background-image: url("../back-school-background-with-school-supplies-copy-space_23-2148959021.webp");
+  background-position: center;
+  /* background-size: cover; */
+}
+
+.stNavbar {
+  background-color: rgb(85, 85, 241);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: white;
+}
+
+/* .Navbar{
+  background-color: rgb(78, 78, 236);
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
 } */
 
+.newNav {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(85, 85, 241);
+  align-items: center;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navBarHeadline {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: white;
+  font-size: large;
+  font-weight: bolder;
+}
+
+#NavHeadingUser {
+  margin-left: 0.7rem;
+  font-size: x-large;
+  color: white;
+}
+
+#LogOutButtonNav {
+  background-color: rgb(60, 63, 239);
+  width: 7.5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  font-size: medium;
+  font-weight: 600;
+  cursor: pointer;
+}
+#LogOutButtonNav:hover {
+  background-color: rgb(35, 35, 242);
+}
+
+.createNote-A {
+  display: flex;
+
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.nameOfUser {
+  display: flex;
+  justify-content: center;
+}
+
+.AddNotesMainDiv {
+  display: grid;
+}
+
+#AddNoteInput {
+  width: 49rem;
+  height: 2rem;
+  font-size: small;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+#AddNotesButton {
+  height: 2rem;
+  background-color: rgb(62, 62, 232);
+  cursor: pointer;
+  color: white;
+  font-size: large;
+}
+#AddNotesButton:hover {
+  background-color: rgb(36, 36, 165);
+}
+
+.LoginPage {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.logincolumn {
+  display: grid;
+}
+
+#HomePageParag {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+  font-weight: bold;
+}
+#AuthPageHeading {
+  display: flex;
+  justify-content: center;
+}
+
+.tabsForTwo {
+  display: flex;
+  justify-content: center;
+}
+
+.loginOrSignup {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  width: 24rem;
+  height: 2rem;
+  margin-bottom: 0.4rem;
+  border: solid 0.01rem rgb(255, 123, 0);
+  border-radius: 1rem;
+}
+
+#AuthTab {
+  border: none;
+  width: 12rem;
+  border-radius: 1rem;
+  font-size: medium;
+  font-weight: 600;
+}
+
+#LoginInput {
+  width: 24rem;
+  height: 2rem;
+  margin-bottom: 0.35rem;
+}
+
+#FormCenter {
+  display: grid;
+  justify-content: center;
+}
+
+#AuthDivOfSignLog {
+  display: flex;
+  justify-content: center;
+}
+#AuthButton {
+  width: 9rem;
+  height: 2.4rem;
+  color: rgb(255, 255, 255);
+  background-color: rgb(60, 60, 217);
+  font-size: medium;
+  font-family: fantasy;
+  font-weight: bold;
+  border-radius: 1rem;
+}
+.ellipsis {
+  width: 90%;
+  overflow-y:scroll;
+  scroll-behavior:smooth;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.NotesCard{
+  background-color: white;
+  border: solid 0.1rem;
+  width: 55rem;
+  margin-top: 1rem;
+  padding-left: 0.8rem;
+  border-radius: 0.5rem;
+}
+.CardsFormat{
+  display: grid;
+justify-content: center;
+}
+#TitleInCard{
+  display: flex;
+  margin-top: 0.4rem;
+
+}
+
+.NotesCardButtons{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0.3rem;
+
+}
+
+.NotesCardButtonsfunction{
+  width: 8rem;
+  height: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /*Hidden by default*/
+  position: fixed; /*Stay in place*/
+  z-index: 1; /*Sit on top*/
+  left: 0;
+  top: 0;
+  width: 100%; /*Full width*/
+  height: 100%; /*Full height*/
+  overflow: auto; /*Enable scroll if needed*/
+  background-color: rgb(0, 0, 0); /*Fallback color*/
+  background-color: rgba(0, 0, 0, 0.4); /*Black w/ opacity*/
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  /* 15% from the top and centered */
+
+  padding: 3%;
+  border: 1px solid #888;
+  width: 100%; /*Could be more or less, depending on screen size*/
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 
 
+#EditNoteInput{
+  margin-bottom:1rem ;
+  height: 2rem;
+}
+
+#EditNotesButton{
+  height: 2rem;
+  background-color: rgb(92, 78, 251);
+  font-size: medium;
+  font-weight: bold;
+  color: white;
+
+}
 
 
+/*************************************************
+**************************************************
+**************************************************/
+
+@media screen and (max-width: 480px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #AddNoteInput {
+    width: 22rem;
+    height: 2rem;
+  }
+  .navBarHeadline {
+    font-size: small;
+    margin-left: 0.6rem;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+
+  #NavHeadingUser {
+    font-size: large;
+    font-weight: 900;
+    color: rgb(246, 71, 71);
+    text-decoration: underline;
+  }
+
+  #LogOutButtonNav {
+    width: 5rem;
+    height: 1.7rem;
+  }
+  .nameOfUser {
+    font-size: small;
+  }
+
+  .loginOrSignup {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    width: 20rem;
+    height: 2rem;
+    margin-bottom: 0.4rem;
+    border: solid 0.01rem rgb(255, 123, 0);
+    border-radius: 1rem;
+  }
+  #LoginInput {
+    width: 20rem;
+    height: 2rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .NotesCard{
+    background-color: white;
+    border: solid 0.1rem;
+    width: 20rem;
+    margin-top: 1rem;
+    padding-left: 0.8rem;
+    border-radius: 0.5rem;
+  }
+}
