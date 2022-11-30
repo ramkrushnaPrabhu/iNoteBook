@@ -1,25 +1,18 @@
-import React from "react";
-import { NotesState } from "../Context/NotesContext";
+import React, { useContext } from 'react'
+import noteContext from '../context/notes/notesContext';
 
 const Alert = () => {
-  const { alert } = NotesState();
-  return (
-    <div style={{ height: "2.5rem" }}>
-      {alert && (
-        <div
-          style={{
-            backgroundColor: alert.type === "success" ? "#29f172" : "#f17474",
-            color: "white",
-            height: "2.5rem",
-          }}
-        >
-          <h4 style={{ marginLeft: "0.5rem" }}>
-            {alert.type}:{alert.msg}
-          </h4>
-        </div>
-      )}
-    </div>
-  );
-};
 
-export default Alert;
+    const context = useContext(noteContext);
+    const { alert } = context;
+    return (
+        <div style={{height: '50px'}}>
+        {alert && <div class={`alert alert-${alert.type} alert-dismissible fade show`} role="alert">
+            <strong>{alert.type}: </strong>{alert.msg}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>}
+        </div>
+    )
+}
+
+export default Alert
